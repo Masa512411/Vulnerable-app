@@ -2,15 +2,20 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>SQL インジェクション</title>
 </head>
 <body>
-	<form action="/email_manager", method="post">
-		<p>username:<input type="text",name="username"></p>
-		<p>password:<input type="text",name="password"></p>
-		<p><input type="submit"></p>
-
-		<p>{{email}}</p>
+	<div class="subcontent" align="center">
+	<form action="http://localhost:8888/"method="post">
+		<p><label>username:</label><input id="username"type="text"name="username"size="15"></p>
+		<p>password:<input id="password"type="text"size="15"name="password"value=""></p>
+		<p><input type="submit"value="submit"></p>
 	</form>	
+	</div>
+	{% for email in emails %}
+	<div align="center">
+		<p>あなたのアドレスは<strong>{{ email[0]}}</strong>です</p>
+	</div>
+	{% endfor %}
 </body>
 </html>
